@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo-List</title>
+
+  <style>
+    *{
+      background-color: rgb(255,255,0);
+    }
+    #input{
+      width: 300px;
+      height: 25px;
+      display: inline-block;
+      margin-top: 100px;
+      margin-left: 40%;
+      border: 1px solid black;
+      border-radius: 5px;
+      font-size: 15px;
+      font-weight: bold;
+      color: black;
+      background-color: azure;
+    }
+    ul{
+      list-style:none;
+    }
+    h1{
+      text-align:center;
+      font-size: 40px;
+      color: Red;
+      padding-top: 40px;
+      font-weight: bold;
+    }
+    
+  </style>
+</head>
+
+
+<body>
+  <h1>Todo-List</h1>
+  <input id="input" placeholder="Enter Your Tasks">
+<button onclick="add()" style="padding: 5px; margin:5px; border-radius:10px; cursor:pointer">Add</button>
+<ul style="text-align: center;" id="list-container">
+  <!-- <li style="list-style: none;">Enter Your Tasks</li> -->
+</ul>
+
+<script>
+  //select ul
+  var ul = document.getElementById("list-container")
+  //select input
+  var input = document.getElementById("input")
+
+  function add()
+  {
+    var listItem = document.createElement("li")
+    listItem.innerHTML = input.value + "<button onclick='del(event)' >Delete</button>"
+    //listItem.innerHTML = input.value + "<button onclick=\"\del()">Delete</button>"
+    ul.append(listItem)
+  }
+
+
+  function del(event)
+  {
+    event.target.parentElement.remove()
+  }
+
+</script>  
+</body>
+</html>
+
